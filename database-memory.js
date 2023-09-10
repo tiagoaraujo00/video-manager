@@ -3,8 +3,8 @@ import { randomUUID } from 'node:crypto'
 export class DatabaseMemory {
   #videos = new Map()
 
-  lis() {
-    return this.#videos.values()
+  list() {
+    return Array.from(this.#videos.values())
   }
   create(video) {
     const videoId = randomUUID()
