@@ -29,6 +29,11 @@ app.put('/videos/:id', (req, res) => {
   })
   return res.status(204).send()
 })
+app.delete('videos/:id', (req, res) => {
+  const { id } = req.params
+  database.delete(id)
+  return res.status(204).send()
+})
 
 app.listen({
   port: 3332
