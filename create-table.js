@@ -7,4 +7,6 @@ CREATE TABLE videos (
   description TEXT,
   duration INT
 );
-`
+`.then(() => {
+  console.log('tabela criada');
+})
