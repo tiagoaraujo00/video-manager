@@ -18,23 +18,22 @@ app.post('/videos', async (req, res) => {
 })
 app.get('/videos', async () => {
  const videos = await database.list()
- console.log(videos);
  return videos
 })
-app.put('/videos/:id', (req, res) => {
+app.put('/videos/:id', async (req, res) => {
   const { id } = req.params
   const { title, description, duration } = req.body
 
-  database.update(id, {
+  await database.update(id, {
     title,
     description,
     duration
   })
   return res.status(204).send()
 })
-app.delete('/videos/:id', (req, res) => {
+app.delete('/videos/:id', async (req, res) => {
   const { id } = req.params
-  database.delete(id)
+  await database.delete(id)
   return res.status(204).send()
 })
 
