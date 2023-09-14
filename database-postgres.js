@@ -12,6 +12,7 @@ export class DatabasePostgres {
     } else {
       videos =  await sql`select * from videos`
     }
+    return videos
   }
   async create(video) {
   const videoId = randomUUID()

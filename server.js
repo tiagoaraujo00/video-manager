@@ -18,6 +18,7 @@ app.post('/videos', async (req, res) => {
 })
 app.get('/videos', async () => {
  const videos = await database.list()
+ console.log(videos);
  return videos
 })
 app.put('/videos/:id', (req, res) => {
