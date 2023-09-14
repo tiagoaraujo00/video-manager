@@ -15,6 +15,8 @@ export class DatabasePostgres {
   }
   async create(video) {
   const videoId = randomUUID()
+  const { title, duration, description } = video
+  await sql`insert into videos (id, title, description, duration) VALUES (${ videoId }, ${ title }, ${ description }, ${ duration })`
   }
   update(id, video) {
   }
